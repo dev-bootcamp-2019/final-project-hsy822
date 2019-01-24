@@ -30,7 +30,7 @@ All informations are saved in blockchain and the picture of products is saved on
 Clone this repository.
 ```
 $ git clone https://github.com/dev-bootcamp-2019/final-project-hsy822
-$ cd consensys-project/
+$ cd final-project-hsy822/
 ```
 Go to the repository folder.
 ```
@@ -47,14 +47,14 @@ $ ganache-cli
 
 Open a new terminal and go to project folder. Compile and migrate smart contract. 
 ```
-$ cd consensys-project/
+$ cd final-project-hsy822/
 $ truffle compile
 $ truffle migrate --reset
 ```
 
 Open a new terminal and go to client folder. You can start server. 
 ```
-$ cd consensys-project/
+$ cd final-project-hsy822/
 $ cd client/
 $ npm run start
 ```
