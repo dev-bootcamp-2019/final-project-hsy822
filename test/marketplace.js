@@ -83,7 +83,7 @@ contract("Marketplace", accounts => {
 
         const ownerBalanceAfter = await marketplaceInstance.balanceOf({from: storeOwner})
 
-        assert.equal(ownerBalanceBefore, 50, 'the deposit of storeOwner in contract should be set 50 before withdraw')
+        assert.equal(parseInt(web3.utils.fromWei(ownerBalanceBefore, 'ether'), 10), 50, 'the deposit of storeOwner in contract should be set 50 before withdraw')
         assert.equal(ownerBalanceAfter, 0, 'the deposit of storeOwner in contract should be set 0 after withdraw')
     })
 
