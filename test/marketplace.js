@@ -62,14 +62,14 @@ contract("Marketplace", accounts => {
 
         const contractBalanceBefore = await web3.eth.getBalance(marketplaceInstance.address)
 
-        // Assume you buy 10 products. each price of product is 5 ether.
-        await marketplaceInstance.buy(1, 10, {from: user, value: web3.utils.toWei('50', 'ether')})
+        // Assume you buy 1 products. each price of product is 5 ether.
+        await marketplaceInstance.buy(1, 1, {from: user, value: web3.utils.toWei('5', 'ether')})
 
         const contractBalanceAfter = await web3.eth.getBalance(marketplaceInstance.address)
         const result = await marketplaceInstance.getOrder(1)
 
         assert.equal(result[4], user, 'the buyer address should be set user address when he purchases an item')
-        assert.equal(contractBalanceAfter, Number(contractBalanceBefore) + parseInt(web3.utils.toWei('50', 'ether'), 10), "contract's balance should be increased by the price of the item")
+        assert.equal(contractBalanceAfter, Number(contractBalanceBefore) + parseInt(web3.utils.toWei('5', 'ether'), 10), "contract's balance should be increased by the price of the item")
     })
 
     /**
@@ -83,7 +83,7 @@ contract("Marketplace", accounts => {
 
         const ownerBalanceAfter = await marketplaceInstance.balanceOf({from: storeOwner})
 
-        assert.equal(parseInt(web3.utils.fromWei(ownerBalanceBefore, 'ether'), 10), 50, 'the deposit of storeOwner in contract should be set 50 before withdraw')
+        assert.equal(parseInt(web3.utils.fromWei(ownerBalanceBefore, 'ether'), 10), 5, 'the deposit of storeOwner in contract should be set 50 before withdraw')
         assert.equal(ownerBalanceAfter, 0, 'the deposit of storeOwner in contract should be set 0 after withdraw')
     })
 
